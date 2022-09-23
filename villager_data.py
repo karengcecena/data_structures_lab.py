@@ -10,12 +10,19 @@ def all_species(filename):
     Return:
         - set[str]: a set of strings
     """
-
-    species = set()
-
-    # TODO: replace this with your code
+    filename = open(filename)
+    species = []
+    
+    for each_line in filename:
+        each_line = each_line.split("|")
+        species.append(each_line[1])
+        
+    species = set(species)
 
     return species
+
+
+# print(all_species("villagers.csv"))
 
 
 def get_villagers_by_species(filename, search_string="All"):
@@ -28,12 +35,19 @@ def get_villagers_by_species(filename, search_string="All"):
     Return:
         - list[str]: a list of names
     """
-
+    filename = open(filename)
     villagers = []
 
-    # TODO: replace this with your code
+    for each_line in filename:
+        each_line = each_line.split("|")
+        
+        if search_string == each_line[1]:
+            villagers.append(each_line[0])
+
 
     return sorted(villagers)
+
+print(get_villagers_by_species("villagers.csv", search_string = "Alligator"))
 
 
 def all_names_by_hobby(filename):
@@ -45,8 +59,47 @@ def all_names_by_hobby(filename):
     Return:
         - list[list[str]]: a list of lists containing names
     """
+    filename = open(filename)
 
-    # TODO: replace this with your code
+    for each_line in filename:
+        each_line = each_line.split("|")
+
+        # Return a list of lists containing villagers' names, grouped by hobby
+
+    hobby = each_line[3]
+    villagers = []
+
+    for hobby in each_line:
+        if hobby == "Education"
+            return each_line[0]
+        
+
+    ###### karen: 
+    filename = open(filename)
+    villagers = []
+
+    for each_line in filename:
+        each_line = each_line.split("|")
+
+        # Return a list of lists containing villagers' names, grouped by hobby
+
+        # ex: hobby = [names1, name 2, name]
+        hobbies = []
+        hobbies = set(hobbies)
+        hobbies = list(hobbies)
+
+        names_and_hobbies = []
+
+        for each_line[3] in each_line:
+            hobbies.append(each_line[3])
+
+        for each_line in filename:
+            i = 0
+            j = 0
+            
+            if each_line[3] == hobbies[i]:
+                names_and_hobbies.append(hobbies[i] = [])
+                names_and_hobbies[i][j].append(each_line[0])
 
     return []
 
