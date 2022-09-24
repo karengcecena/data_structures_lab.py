@@ -105,7 +105,7 @@ def all_names_by_hobby(filename):
 
     return [names_and_hobbies]
 
-print(all_names_by_hobby("villagers.csv"))
+# print(all_names_by_hobby("villagers.csv"))
 
 
 def all_data(filename):
@@ -121,11 +121,19 @@ def all_data(filename):
         - list[tuple[str]]: a list of tuples containing strings
     """
 
+    filename = open(filename)
+    
     all_data = []
 
-    # TODO: replace this with your code
+    for each_line in filename:
+        each_line = each_line.split("|")
+
+        all_data.append((each_line[0], each_line[1], each_line[2], each_line[3], each_line[4]))
+
 
     return all_data
+
+print(all_data("villagers.csv"))
 
 
 def find_motto(filename, villager_name):
