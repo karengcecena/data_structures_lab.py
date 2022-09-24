@@ -161,7 +161,7 @@ def find_motto(filename, villager_name):
             return motto
 
 
-print(find_motto("villagers.csv", "Deli"))
+# print(find_motto("villagers.csv", "Deli"))
 
 
 def find_likeminded_villagers(filename, villager_name):
@@ -179,4 +179,28 @@ def find_likeminded_villagers(filename, villager_name):
         {'Bella', ..., 'Carmen'}
     """
 
-    # TODO: replace this with your code
+    filename = open(filename)
+
+    villagers_alike = []
+
+    villager_personality = ""
+    
+    new_list = []
+    
+    # Get personality type:     
+    for each_line in filename:
+        each_line = each_line.split("|")
+        new_list.append(each_line)
+
+        if villager_name == each_line[0]:
+            villager_personality = each_line[2]
+
+    # Iterate through new_list instead........ 
+    for each_line in new_list:
+        if villager_personality == each_line[2] and each_line[0] != villager_name:
+            villagers_alike.append(each_line[0])
+
+
+    return set(villagers_alike)
+
+print(find_likeminded_villagers('villagers.csv', 'Wendy'))
